@@ -9,7 +9,7 @@
     <div class="background-container"></div>
     <div class="overlay"></div>
     <div class="container">
-        <h1>Approved Requests</h1>
+        <h1>Approved Bot Requests</h1>
         <div class="button-container">
             <a href="{{ url_for('request_page') }}" class="new-request-button">Make a New Request</a>
         </div>
@@ -23,7 +23,7 @@
                 {% endif %}
                 {% if req.admin_reply %}
                     <div class="admin-reply">
-                        <p><strong>Admin Reply:</strong> {{ req.admin_reply }}</p>
+                        <p><strong>Erokuu's Reply:</strong> {{ req.admin_reply }}</p>
                     </div>
                 {% endif %}
             </div>

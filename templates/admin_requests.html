@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Requests</title>
+    <title>Accept Panel</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -9,7 +9,7 @@
     <div class="background-container"></div>
     <div class="overlay"></div>
     <div class="container">
-        <h1>Admin Requests</h1>
+        <h1>Bots Requested</h1>
         {% for req in requests %}
             <div class="request-bubble">
                 <p><strong>Requester:</strong> {{ req.requester }}</p>
@@ -25,7 +25,7 @@
                     <img src="{{ url_for('uploaded_file', filename=req.attachment) }}" alt="Attached Image" style="max-width: 100%; height: auto;">
                 {% endif %}
                 {% if req.admin_reply %}
-                    <p><strong>Admin Reply:</strong> {{ req.admin_reply }}</p>
+                    <p><strong>Erokuu:</strong> {{ req.admin_reply }}</p>
                 {% endif %}
                 {% if req.status == 'pending' %}
                     <div class="admin-actions">

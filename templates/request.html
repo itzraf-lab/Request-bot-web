@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Make a Request</title>
+    <title>Erokuu Character Request</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -9,15 +9,15 @@
     <div class="background-container"></div>
     <div class="overlay"></div>
     <div class="container">
-        <h1>Make a Request</h1>
+        <h1>Request a Bot</h1>
         <form method="POST" class="request-form" enctype="multipart/form-data">
-            <label for="message">Request Message:</label>
+            <label for="message">How do you want it (Personality, Scenario, Details):</label>
             <textarea id="message" name="message" rows="4" required></textarea>
 
-            <label for="requester">Your Name:</label>
+            <label for="requester">Your Name (Put "Anon" if you don't want to share it):</label>
             <input type="text" id="requester" name="requester" required>
 
-            <label for="attachment">Attach Image (optional):</label>
+            <label for="attachment">Image for the bot (optional):</label>
             <input type="file" id="attachment" name="attachment" accept="image/*">*
 
             <input type="submit" value="Submit Request">
