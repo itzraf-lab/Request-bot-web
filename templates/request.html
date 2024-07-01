@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Make a Request</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Make a Request</h1>
+        <form method="POST" class="request-form" enctype="multipart/form-data">
+            <label for="message">Request Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <label for="requester">Your Name:</label>
+            <input type="text" id="requester" name="requester" required>
+
+            <label for="attachment">Attach Image (optional):</label>
+            <input type="file" id="attachment" name="attachment" accept="image/*">*
+
+            <input type="submit" value="Submit Request">
+        </form>
+    </div>
+</body>
+</html>

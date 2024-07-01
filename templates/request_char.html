@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Requests</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1>Requests</h1>
+        <div class="button-container">
+            <a href="{{ url_for('request_page') }}" class="new-request-button">Make a New Request</a>
+            <a href="{{ url_for('approved_requests') }}" class="approved-requests-button">See Approved Requests</a>
+        </div>
+        {% for req in requests %}
+            <div class="request-bubble">
+                <p><strong>Requester:</strong> {{ req.requester }}</p>
+                <p><strong>Message:</strong> {{ req.message }}</p>
+                <div class="status-container">
+                    <strong>Status:</strong>
+                    <span class="status status-{{ req.status }}">
+                        {{ req.status.capitalize() }}
+                    </span>
+                </div>
+                {% if req.attachment %}
+                    <p><strong>Attachment:</strong></p>
+                    <img src="{{ url_for('uploaded_file', filename=req.attachment) }}" alt="Attached Image" style="max-width: 100%; height: auto;">
+                {% endif %}
+                {% if req.admin_reply %}
+                    <div class="admin-reply">
+                        <p><strong>Admin Reply:</strong> {{ req.admin_reply }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

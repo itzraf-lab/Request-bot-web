@@ -1,0 +1,340 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #000; /*Fallback color*/
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background-image: url('https://files.catbox.moe/hvb8py.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+}
+
+.container {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: #fff;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.new-request-button,
+.approved-requests-button {
+    display: inline-block;
+    color: white !important;
+    padding: 12px 24px;
+    text-decoration: none !important;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.new-request-button {
+    background-color: #4CAF50;
+}
+
+.approved-requests-button {
+    background-color: #3498db;
+}
+
+.new-request-button:hover,
+.new-request-button:focus,
+.approved-requests-button:hover,
+.approved-requests-button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.new-request-button:hover,
+.new-request-button:focus {
+    background-color: #45a049;
+}
+
+.approved-requests-button:hover,
+.approved-requests-button:focus {
+    background-color: #2980b9;
+}
+
+.request-form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+}
+
+.request-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.request-form input[type="text"],
+.request-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+}
+
+.request-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.request-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.request-bubble {
+    background-color: rgba(230, 243, 255, 0.1);
+    border: 1px solid rgba(179, 217, 255, 0.3);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    backdrop-filter: blur(5px);
+    max-height: 300px;
+    overflow-y: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.request-bubble p {
+    margin: 5px 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.status-container {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.status-container strong {
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.status {
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 3px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.status-pending {
+    background-color: #ffd700;
+    color: #000;
+}
+
+.status-approved {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.status-denied {
+    background-color: #f44336;
+    color: white;
+}
+
+.request-bubble img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.admin-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-actions a {
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    flex-grow: 1;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.approve-btn {
+    background-color: #4CAF50;
+}
+
+.deny-btn {
+    background-color: #f44336;
+}
+
+.reply-form {
+    margin-top: 15px;
+}
+
+.reply-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+}
+
+.reply-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.admin-reply {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #4CAF50;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 0 4px 4px 0;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-sizing: border-box;
+}
+
+.login-form input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.flash-messages {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+@media (min-width: 601px) {
+    .new-request-button,
+    .approved-requests-button {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .request-bubble {
+        padding: 10px;
+    }
+
+    .admin-actions {
+        flex-direction: column;
+    }
+
+    .admin-actions a {
+        margin: 5px 0;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .new-request-button,
+    .approved-requests-button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
